@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:georss="http://www.georss.org/georss" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+      <title>CBIBS Live Data from Annapolis</title>
+      <link>http://buoybay.noaa.gov/locations/rss/AN</link>
+      <description>Live Data from the Bay Buoys</description>
+      <language>en-us</language>
+      <atom:link href="http://buoybay.noaa.gov/locations/rss/AN" rel="self" type="application/rss+xml"/>
+      <ttl>10</ttl>
+      <item>
+    <title>Barometric Pressure as of 10 minutes ago at 11:30PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=air_pressure</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=air_pressure</guid>
+    <pubDate>21 Nov 2016 23:30:00 -0500</pubDate>
+    <description>30.04 inches</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Air Temperature as of 10 minutes ago at 11:30PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=air_temperature</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=air_temperature</guid>
+    <pubDate>21 Nov 2016 23:30:00 -0500</pubDate>
+    <description>38.3 F</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Chlorophyll A as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=concentration_of_chlorophyll_in_sea_water</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=concentration_of_chlorophyll_in_sea_water</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>6.1 ug/L</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Dissolved Oxygen as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=concentration_of_oxygen_in_sea_water</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=concentration_of_oxygen_in_sea_water</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>8.3 mg/L</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Current Direction as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=current_average_direction</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=current_average_direction</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>335 degrees</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Current Velocity as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=current_average_velocity</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=current_average_velocity</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>0.05 knots</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Heat Index as of 10 minutes ago at 11:30PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=heat_index</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=heat_index</guid>
+    <pubDate>21 Nov 2016 23:30:00 -0500</pubDate>
+    <description>38.3 F</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Latitude as of 10 minutes ago at 11:30PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=latitude</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=latitude</guid>
+    <pubDate>21 Nov 2016 23:30:00 -0500</pubDate>
+    <description>38.96361 degrees</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Longitude as of 10 minutes ago at 11:30PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=longitude</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=longitude</guid>
+    <pubDate>21 Nov 2016 23:30:00 -0500</pubDate>
+    <description>-76.4468 degrees</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Relative Humidity as of 10 minutes ago at 11:30PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=relative_humidity</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=relative_humidity</guid>
+    <pubDate>21 Nov 2016 23:30:00 -0500</pubDate>
+    <description>47 percent</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Sea Nettle Probability as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=seanettle_prob</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=seanettle_prob</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>0.3 percent</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Maximum Wave Height as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_surface_maximum_wave_height</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_surface_maximum_wave_height</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>1.6 ft</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Mean Wave Height as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_surface_mean_wave_height</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_surface_mean_wave_height</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>0.6 ft</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Mean Wave Direction as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_surface_wave_from_direction</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_surface_wave_from_direction</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>315 degrees</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Significant Wave Height as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_surface_wave_significant_height</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_surface_wave_significant_height</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>0.9 ft</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Mean Wave Period as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_surface_wind_wave_period</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_surface_wind_wave_period</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>2.1 s</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Water Conductivity as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_water_electrical_conductivity</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_water_electrical_conductivity</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>1.99 S/m</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Water Freezing Point as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_water_freezing_point</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_water_freezing_point</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>30.4 F</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Water Salinity as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_water_salinity</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_water_salinity</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>16.6 PSU</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Water Temperature as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_water_temperature</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=sea_water_temperature</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>52 F</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Turbidity as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=simple_turbidity</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=simple_turbidity</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>4.7 NTU</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Wave Direction Spread as of 40 minutes ago at 11:00PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=wave_direction_spread</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=wave_direction_spread</guid>
+    <pubDate>21 Nov 2016 23:00:00 -0500</pubDate>
+    <description>39 degrees</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Wind Chill as of 10 minutes ago at 11:30PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=wind_chill</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=wind_chill</guid>
+    <pubDate>21 Nov 2016 23:30:00 -0500</pubDate>
+    <description>28.6 F</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Wind Direction as of 10 minutes ago at 11:30PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=wind_from_direction</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=wind_from_direction</guid>
+    <pubDate>21 Nov 2016 23:30:00 -0500</pubDate>
+    <description>300 degrees</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Wind Speed as of 10 minutes ago at 11:30PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=wind_speed</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=wind_speed</guid>
+    <pubDate>21 Nov 2016 23:30:00 -0500</pubDate>
+    <description>16.3 knots</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+   <item>
+    <title>Wind Gust as of 10 minutes ago at 11:30PM Nov 21 EST</title>
+    <link>http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=wind_speed_of_gust</link>
+    <guid isPermaLink="true">http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&amp;yaxis=wind_speed_of_gust</guid>
+    <pubDate>21 Nov 2016 23:30:00 -0500</pubDate>
+    <description>20.4 knots</description>
+    <georss:point>38.9631 --76.4475</georss:point>
+  </item>
+     </channel>
+</rss>
