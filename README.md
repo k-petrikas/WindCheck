@@ -40,4 +40,4 @@ This application has been developed in Eclipse (Java) and built using Maven. In 
 * Run the main class.
 
 ### Notes
-That should hopefully work. I ran into a few snags trying to run it myself including my Maven PATH variable not working (opted to hard code it rather than using the %M2_HOME% variable) and receiving an error regarding the program not finding the main class. These directions were included above. The solution was originally found [here](http://stackoverflow.com/questions/11235827/eclipse-error-could-not-find-or-load-main-class).
+That should hopefully work. I ran into a few snags trying to run it myself including my Maven PATH variable not working (opted to hard code the PATH variable rather than using the %M2_HOME% variable) and receiving an error regarding the program not finding the main class. These directions were included above. The solution was originally found [here](http://stackoverflow.com/questions/11235827/eclipse-error-could-not-find-or-load-main-class).
