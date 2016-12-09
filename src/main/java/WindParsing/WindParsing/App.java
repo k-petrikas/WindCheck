@@ -1,3 +1,4 @@
+
 package WindParsing.WindParsing;
 
 import java.io.File;
@@ -25,22 +26,29 @@ import com.sun.syndication.io.SyndFeedInput;
 import com.sun.syndication.io.XmlReader;
 
 /**
- * Hello world!
+ * this class contains the main method for windParsing
  *
  */
+
 public class App {
 	public static void main(String args[]) {
-		System.out.println("Hello World!");
+		
+		/*
+		 * main method currently returns 
+		 * 
+		 * in the future this class with probably just become an self instantiation
+		 */
 
 		// get the rss feed from website
 		System.out.println("rss feed raw from rome: ");
-		SyndFeed feed = readRSS("http://buoybay.noaa.gov/locations/rss/AN");
+		String stringWebsiteURL = "http://buoybay.noaa.gov/locations/rss/AN";
+		SyndFeed feed = readRSS(stringWebsiteURL);
 		
 		// send rss feed to aray list
 		String[][] arrayOfRSSDataValues = sendSyndFeedToArrayList(feed);
 
 		
-
+		//output of the array list
 		System.out.println("wind speed is:");
 		System.out.println(arrayOfRSSDataValues[24][2]);
 
@@ -76,46 +84,17 @@ public class App {
 		//
 		// }
 		//
-		//
-		//
-		//// for (int temp = 0; temp < nList.getLength(); temp++) {
-		////
-		//// Node nNode = nList.item(temp);
-		////
-		//// System.out.println("\nCurrent Element :" + nNode.getNodeName());
-		//// System.out.println("int value: " + temp);
-		////
-		//// if (nNode.getNodeType() == Node.ELEMENT_NODE) {
-		////
-		//// Element eElement = (Element) nNode;
-		////
-		//// System.out.println("title : " +
-		// eElement.getElementsByTagName("title").item(0).getTextContent());
-		//// System.out.println("link : " +
-		// eElement.getElementsByTagName("link").item(0).getTextContent());
-		//// System.out.println("guid : " +
-		// eElement.getElementsByTagName("guid").item(0).getTextContent());
-		//// System.out.println("pubDate : " +
-		// eElement.getElementsByTagName("pubDate").item(0).getTextContent());
-		//// System.out.println("description : " +
-		// eElement.getElementsByTagName("description").item(0).getTextContent());
-		//// System.out.println("georss:point : " +
-		// eElement.getElementsByTagName("georss:point").item(0).getTextContent());
-		////
-		//// }
-		//// }
-		//
-		// } catch (Exception e) {
-		// e.printStackTrace();
-		// }
-
+	
 	}
 
 	private static String[][] sendSyndFeedToArrayList(SyndFeed feed) {
+		/*
+		 * this method will put the parsed rss feed into an array of arrays in order to manipulate the data for later use
+		 */
 		int i = 0;
 		String[][] arrayOfRSSDataValues = new String[26][];
 		for (SyndEntry entry : (List<SyndEntry>) feed.getEntries()) {
-			System.out.println(i);
+			System.out.println("\n" + i + ":");
 			String title = entry.getTitle();
 			String uri = entry.getUri();
 			String description = entry.getDescription().getValue();
@@ -140,7 +119,7 @@ public class App {
 
 		SyndFeed feed = null;
 		try {
-			URL feedSource = new URL("http://buoybay.noaa.gov/locations/rss/AN");
+			URL feedSource = new URL(websiteURL);
 			SyndFeedInput input = new SyndFeedInput();
 			feed = input.build(new XmlReader(feedSource));
 
