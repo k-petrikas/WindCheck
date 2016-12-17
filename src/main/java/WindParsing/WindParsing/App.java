@@ -13,12 +13,25 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import com.amazon.speech.speechlet.IntentRequest;
+import com.amazon.speech.speechlet.LaunchRequest;
+import com.amazon.speech.speechlet.Session;
+import com.amazon.speech.speechlet.SessionEndedRequest;
+import com.amazon.speech.speechlet.SessionStartedRequest;
+import com.amazon.speech.speechlet.Speechlet;
+import com.amazon.speech.speechlet.SpeechletException;
+import com.amazon.speech.speechlet.SpeechletResponse;
+import com.amazon.speech.ui.PlainTextOutputSpeech;
+import com.amazon.speech.ui.Reprompt;
+import com.amazon.speech.ui.SimpleCard;
 import com.sun.syndication.feed.synd.SyndEntry;
 import com.sun.syndication.feed.synd.SyndFeed;
 import com.sun.syndication.io.FeedException;
@@ -30,7 +43,9 @@ import com.sun.syndication.io.XmlReader;
  *
  */
 
-public class App {
+public class App implements Speechlet {
+	
+	
 	public static void main(String args[]) {
 		
 		/*
@@ -131,5 +146,70 @@ public class App {
 		return feed;
 
 	}
+	
+	/*
+	 * we will need to fill in the below intents...
+	 * 
+	 * TODO: fill in below with stuff that returns values...
+	 */
+
+	// FIXME: not sure if we need a log and or logger factory KP: 12/17/2016
+	private static final Logger log = LoggerFactory.getLogger(App.class);
+	
+	@Override
+	public SpeechletResponse onIntent(IntentRequest request, Session session) throws SpeechletException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public SpeechletResponse onLaunch(LaunchRequest request, Session session) throws SpeechletException {
+		log.info("onLaunch requestId={}, sessionId={}", request.getRequestId(),
+                session.getSessionId());
+        return getWelcomeResponse();
+	}
+
+	@Override
+	public void onSessionEnded(SessionEndedRequest request, Session session) throws SpeechletException {
+		log.info("onSessionEnded requestId={}, sessionId={}", request.getRequestId(), session.getSessionId());
+		// any cleanup logic goes here
+		// TODO: probably should dump all parsed wind data
+	}
+
+	@Override
+	public void onSessionStarted(SessionStartedRequest request, Session session) throws SpeechletException {
+		log.info("onSessionStarted requestId={}, sessionId={}", request.getRequestId(), session.getSessionId());
+		// any initialization logic goes here
+		// TODO: probably should get the latest wind data and parse it and store it for later here...
+
+	}
+	
+	
+	
+	/**
+	 * FIXME
+	 * Creates and returns a {@code SpeechletResponse} with a welcome message.
+	 *
+	 * @return SpeechletResponse spoken and visual response for the given intent
+	 */
+	private SpeechletResponse getWelcomeResponse() {
+		String speechText = "Welcome to the Alexa Skills Kit, you can say hello";
+
+		// Create the Simple card content.
+		SimpleCard card = new SimpleCard();
+		card.setTitle("HelloWorld");
+		card.setContent(speechText);
+
+		// Create the plain text output.
+		PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+		speech.setText(speechText);
+
+		// Create reprompt
+		Reprompt reprompt = new Reprompt();
+		reprompt.setOutputSpeech(speech);
+
+		return SpeechletResponse.newAskResponse(speech, reprompt, card);
+	}
+	
 
 }

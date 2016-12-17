@@ -54,6 +54,14 @@
     	<artifactId>jdom</artifactId>
     	<version>1.1</version>
 	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/com.amazon.alexa/alexa-skills-kit -->
+	<dependency>
+    	<groupId>com.amazon.alexa</groupId>
+    	<artifactId>alexa-skills-kit</artifactId>
+   		<version>1.2</version>
+	</dependency>
+	
 
   </dependencies>
 </project>

@@ -24,6 +24,7 @@ At present, this application pulls the barometric pressure, temperature, wind di
 * [Alexa Skills Kit](https://developer.amazon.com/alexa-skills-kit#Ready%20to%20start%3F)
 * [Understanding Custom Skills](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/overviews/understanding-custom-skills)
 * [Steps to Build a Custom Skill](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/overviews/steps-to-build-a-custom-skill)
+* [what the different methods mean](http://tobuildsomething.com/2015/08/14/Amazon-Alexa-JavaScript-SDK-The-Ultimate-Guide/)
 
 
 ## How To Run
