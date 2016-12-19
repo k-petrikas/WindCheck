@@ -30,7 +30,7 @@ public class WindParsingRequestStreamHandler extends SpeechletRequestStreamHandl
 		 * "Edit" the relevant Alexa Skill and put the relevant Application Ids
 		 * in this Set.
 		 */
-		supportedApplicationIds.add("amzn1.echo-sdk-ams.app.[unique-value-here]");
+		supportedApplicationIds.add("amzn1.ask.skill.cbf8ef6b-053f-47ef-9527-7e275532cef2");
 	}
 
 	public WindParsingRequestStreamHandler() {

@@ -26,6 +26,10 @@ At present, this application pulls the barometric pressure, temperature, wind di
 * [Steps to Build a Custom Skill](https://developer.amazon.com/public/solutions/alexa/alexa-skills-kit/overviews/steps-to-build-a-custom-skill)
 * [what the different methods mean](http://tobuildsomething.com/2015/08/14/Amazon-Alexa-JavaScript-SDK-The-Ultimate-Guide/)
 
+## Weather data:
+* [noaa national data buoy center](http://www.ndbc.noaa.gov/)
+* may want to look at in order to see other buoy options for data....
+
 
 ## How To Run
 This application has been developed in Eclipse (Java) and built using Maven. In order to modify and run the program, [Java Development Toolkit (jdk)](http://www.oracle.com/technetwork/java/javase/downloads/index-jsp-138363.html), [Eclipse](https://eclipse.org/downloads/), and [Maven](http://maven.apache.org/download.cgi) must first be installed. Additional Maven instructions can be found [here](https://www.mkyong.com/maven/how-to-install-maven-in-windows/).

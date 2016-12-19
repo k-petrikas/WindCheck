@@ -1,0 +1,5 @@
+SailingWindForecast what is the current wind
+SailingWindForecast wind reading
+SailingWindForecast wind
+SailingWindForecast get wind speed
+ChesapeakBuoySystem wind speed in {BuoyLocation}
