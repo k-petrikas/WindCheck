@@ -93,8 +93,22 @@ public class App implements Speechlet {
 			// System.out.println(entry.getTitle());
 			// System.out.println(indexASOF);
 
-			String trimedTitle = entry.getTitle().substring(0, indexASOF);
+			// set variable for the json node name
+			String trimedNodeTitle = entry.getTitle().substring(0, indexASOF);
 			// System.out.println(trimedTitle + ":");
+
+			/*
+			 * TODO: logic for setting out of date variable could probably go
+			 * here (to pull it out of the title with the index)
+			 * 
+			 * sample title: Wind Speed as of 16 days ago at 07:50AM Dec 5 EST
+			 * 
+			 * probably should just include logic to pull out the "how long ago"
+			 * here and store it as a field in the json object... then when
+			 * returning the values and setting them as the return string
+			 * perform logic on the "how long ago" and return a
+			 * "this data is out of date if out of date"
+			 */
 
 			try {
 
@@ -103,10 +117,9 @@ public class App implements Speechlet {
 				jsonContent.put("url", entry.getUri());
 				jsonContent.put("description", entry.getDescription().getValue());
 
-				jsonHeader.put(trimedTitle, jsonContent);
+				jsonHeader.put(trimedNodeTitle, jsonContent);
 
 			} catch (JSONException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
@@ -196,6 +209,7 @@ public class App implements Speechlet {
 		JSONObject parsedXMLJSON = sendSyndFeedToJsonObject(feed);
 
 		// return the wind speed from JSON
+		// TODO: this is where logic for data out of date would go maybe??
 		try {
 			return parsedXMLJSON.getJSONObject("Wind Speed").get("description").toString();
 		} catch (JSONException e) {
@@ -205,9 +219,9 @@ public class App implements Speechlet {
 	}
 
 	/*
-	 * we will need to fill in the below intents...
+	 * below is all the logic for ASK (alexa skills kit) there are 4 required
+	 * methods: onIntent onLaunch onSessionStarted onSessionEnded
 	 * 
-	 * TODO: fill in below with stuff that returns values...
 	 */
 
 	// FIXME: not sure if we need a log and or logger factory KP: 12/17/2016
@@ -241,15 +255,12 @@ public class App implements Speechlet {
 	public void onSessionEnded(SessionEndedRequest request, Session session) throws SpeechletException {
 		log.info("onSessionEnded requestId={}, sessionId={}", request.getRequestId(), session.getSessionId());
 		// any cleanup logic goes here
-		// TODO: probably should dump all parsed wind data
 	}
 
 	@Override
 	public void onSessionStarted(SessionStartedRequest request, Session session) throws SpeechletException {
 		log.info("onSessionStarted requestId={}, sessionId={}", request.getRequestId(), session.getSessionId());
 		// any initialization logic goes here
-		// TODO: probably should get the latest wind data and parse it and store
-		// it for later here...
 
 	}
 
@@ -351,6 +362,8 @@ public class App implements Speechlet {
 
 		windSpeed = getWindSpeedForParticularBuoy(urlCodeForBuoyLocation);
 
+		
+		
 		String speechText = "The current wind speed for " + buoyLocation + " is " + windSpeed;
 
 		// Create the Simple card content.
