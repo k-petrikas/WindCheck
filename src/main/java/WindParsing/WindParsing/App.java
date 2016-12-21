@@ -90,13 +90,14 @@ public class App implements Speechlet {
 		for (SyndEntry entry : (List<SyndEntry>) feed.getEntries()) {
 
 			int indexASOF = entry.getTitle().indexOf("as of") - 1;
-			// System.out.println(entry.getTitle());
+			System.out.print(entry.getTitle());
 			// System.out.println(indexASOF);
 
 			// set variable for the json node name
 			String trimedNodeTitle = entry.getTitle().substring(0, indexASOF);
+			String magnitude = entry.getTitle().substring(indexASOF+9);
 			// System.out.println(trimedTitle + ":");
-
+			// System.out.println(trimedNodeTitle);
 			/*
 			 * TODO: logic for setting out of date variable could probably go
 			 * here (to pull it out of the title with the index)
@@ -111,12 +112,22 @@ public class App implements Speechlet {
 			 */
 
 			try {
-
 				JSONObject jsonContent = new JSONObject();
 				jsonContent.put("title", entry.getTitle());
 				jsonContent.put("url", entry.getUri());
 				jsonContent.put("description", entry.getDescription().getValue());
-
+				
+				if (magnitude.substring(0, 3).equals("min") ||
+					magnitude.substring(0, 3).equals("sec") ||
+					magnitude.substring(1, 4).equals("min") ||
+					magnitude.substring(1, 4).equals("sec") ){
+					jsonContent.put("upToDate", true);
+				}
+				else {
+					// System.out.println(" ...this is pretty old.");
+					jsonContent.put("upToDate", false);
+				}
+				
 				jsonHeader.put(trimedNodeTitle, jsonContent);
 
 			} catch (JSONException e) {
