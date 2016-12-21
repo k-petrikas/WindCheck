@@ -26,7 +26,7 @@ public enum ChesapeakBayBuoyLocations {
 	AN("ANNAPOLIS"),
 	S("SUSQUEHANNA"),
 	SN("PATAPSCO"),
-	IP("UPPER POTOMAC"),
+	UP("UPPER POTOMAC"),
 	GR("GOOSES REEF"),
 	PL("POTOMAC"),
 	SR("STINGRAY POINT"),

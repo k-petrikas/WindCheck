@@ -13,6 +13,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -50,7 +52,7 @@ public class App implements Speechlet {
 
 	String windSpeed = "";
 
-	public static void main(String args[]) {
+	public static void main(String args[]) throws JSONException {
 
 		/*
 		 * main method currently returns
@@ -65,62 +67,67 @@ public class App implements Speechlet {
 		SyndFeed feed = readRSS(stringWebsiteURL);
 
 		// send rss feed to aray list
-		String[][] arrayOfRSSDataValues = sendSyndFeedToArrayList(feed);
+		JSONObject parsedXMLJSON = sendSyndFeedToJsonObject(feed);
+		// String[][] arrayOfRSSDataValues = sendSyndFeedToArrayList(feed);
 
 		// output of the array list
 		System.out.println("wind speed is:");
-		System.out.println(arrayOfRSSDataValues[24][2]);
+		System.out.println(parsedXMLJSON.getJSONObject("Wind Speed").get("description"));
 
-		// from the feed pull out the information you need
-		System.out.println("\ntitle:");
-		System.out.println(arrayOfRSSDataValues[24][0]);
-
-
-		// parce of an existing document for practice
-		// try {
-		// File fXmlFile = new File("testXMLs/NOAADataXML.xml");
-		//
-		// DocumentBuilderFactory dbFactory =
-		// DocumentBuilderFactory.newInstance();
-		// DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-		// Document doc = dBuilder.parse(fXmlFile);
-		//
-		// doc.getDocumentElement().normalize();
-		//
-		// System.out.println("Root element :" +
-		// doc.getDocumentElement().getNodeName());
-		// NodeList nList = doc.getElementsByTagName("item");
-		//
-		// //get the wind speed
-		// Node windNode = nList.item(24);
-		// if (windNode.getNodeType() == Node.ELEMENT_NODE) {
-		//
-		// Element eElement = (Element) windNode;
-		//
-		// System.out.println(eElement.getElementsByTagName("title").item(0).getTextContent());
-		// System.out.println("wind speed : " +
-		// eElement.getElementsByTagName("description").item(0).getTextContent());
-		//
-		// }
-		//
-		
 		TESTMETHOD();
-		
-		
 
-		
+	}
+
+	private static JSONObject sendSyndFeedToJsonObject(SyndFeed feed) {
+		/*
+		 * attempt to put synd feed into json object
+		 */
+
+		// this is the main json object that will get returned
+		JSONObject jsonHeader = new JSONObject();
+
+		// for each synd entry run through and get data
+		for (SyndEntry entry : (List<SyndEntry>) feed.getEntries()) {
+
+			int indexASOF = entry.getTitle().indexOf("as of") - 1;
+			// System.out.println(entry.getTitle());
+			// System.out.println(indexASOF);
+
+			String trimedTitle = entry.getTitle().substring(0, indexASOF);
+			// System.out.println(trimedTitle + ":");
+
+			try {
+
+				JSONObject jsonContent = new JSONObject();
+				jsonContent.put("title", entry.getTitle());
+				jsonContent.put("url", entry.getUri());
+				jsonContent.put("description", entry.getDescription().getValue());
+
+				jsonHeader.put(trimedTitle, jsonContent);
+
+			} catch (JSONException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+		// TESTING
+		// System.out.println(jsonHeader.toString());
+
+		// return json object
+		return jsonHeader;
 
 	}
 
 	private static void TESTMETHOD() {
-		
+
 		String buoyLocation = "gooses reef".toUpperCase();
-//		buoyLocation = buoyLocation.toUpperCase();
+		// buoyLocation = buoyLocation.toUpperCase();
 		String urlCodeForBuoyLocation = ChesapeakBayBuoyLocations.get(buoyLocation).toString();
 		System.out.println("buoy location: " + urlCodeForBuoyLocation);
 
 		System.out.println("wind speed of below should be:");
-		System.out.println(getWindSpeedForParticularBuoy(urlCodeForBuoyLocation));		
+		System.out.println(getWindSpeedForParticularBuoy(urlCodeForBuoyLocation));
 	}
 
 	private static String[][] sendSyndFeedToArrayList(SyndFeed feed) {
@@ -137,17 +144,16 @@ public class App implements Speechlet {
 			String description = entry.getDescription().getValue();
 			// // ... you should include all values here... will be all lines
 			// that need to get added to the parsed array list
-			
-			
+
 			arrayOfRSSDataValues[i] = new String[6];
 			arrayOfRSSDataValues[i][0] = title;
 			arrayOfRSSDataValues[i][1] = uri;
 			arrayOfRSSDataValues[i][2] = description;
-			
+
 			// System.out.println("title: " + title);
 			// System.out.println("uri: " + uri);
 			// System.out.println("description: " + description);
-			
+
 			i++;
 		}
 
@@ -174,20 +180,28 @@ public class App implements Speechlet {
 	private static String getWindSpeedForParticularBuoy(String urlCodeForBuoyLocation) {
 
 		/*
+		 * PRODUCTION CODE
+		 * 
 		 * this will contain all info for getting wind speed for buoy by area
 		 * location code
+		 * 
+		 * will populate wind speed
 		 */
 
 		// get the rss feed from website
 		String stringWebsiteURL = "http://buoybay.noaa.gov/locations/rss/" + urlCodeForBuoyLocation;
-		System.out.println(stringWebsiteURL);
 		SyndFeed feed = readRSS(stringWebsiteURL);
 
-		// send rss feed to aray list
-		String[][] arrayOfRSSDataValues = sendSyndFeedToArrayList(feed);
+		// send rss feed to JSON object
+		JSONObject parsedXMLJSON = sendSyndFeedToJsonObject(feed);
 
-		// return the wind speed from array
-		return arrayOfRSSDataValues[24][2];
+		// return the wind speed from JSON
+		try {
+			return parsedXMLJSON.getJSONObject("Wind Speed").get("description").toString();
+		} catch (JSONException e) {
+			e.printStackTrace();
+			return "error finding wind data";
+		}
 	}
 
 	/*
@@ -237,7 +251,6 @@ public class App implements Speechlet {
 		// TODO: probably should get the latest wind data and parse it and store
 		// it for later here...
 
-		
 	}
 
 	/**
@@ -270,7 +283,7 @@ public class App implements Speechlet {
 	 * @return SpeechletResponse spoken and visual response for the given intent
 	 */
 	private SpeechletResponse getWindSpeed() {
-		
+
 		String urlCodeForBuoyLocation = ChesapeakBayBuoyLocations.get("ANNAPOLIS").toString();
 
 		windSpeed = getWindSpeedForParticularBuoy(urlCodeForBuoyLocation);
@@ -324,16 +337,17 @@ public class App implements Speechlet {
 		 */
 
 		/*
-		 *  get the slot location for request
-		 *  steralize the slot location (send it to upper)
+		 * get the slot location for request steralize the slot location (send
+		 * it to upper)
 		 */
 		String buoyLocation = request.getIntent().getSlot("BuoyLocation").getValue().toString().toUpperCase();
 		String urlCodeForBuoyLocation = ChesapeakBayBuoyLocations.get(buoyLocation).toString();
-		
-//		String buoyLocation = "annapolis";
-//		Annapolis
-//		buoyLocation = buoyLocation.toUpperCase();
-//		String urlCodeForBuoyLocation = ChesapeakBayBuoyLocations.get(buoyLocation).toString();
+
+		// String buoyLocation = "annapolis";
+		// Annapolis
+		// buoyLocation = buoyLocation.toUpperCase();
+		// String urlCodeForBuoyLocation =
+		// ChesapeakBayBuoyLocations.get(buoyLocation).toString();
 
 		windSpeed = getWindSpeedForParticularBuoy(urlCodeForBuoyLocation);
 
