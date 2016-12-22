@@ -2,4 +2,39 @@ SailingWindForecast what is the current wind
 SailingWindForecast wind reading
 SailingWindForecast wind
 SailingWindForecast get wind speed
+
+
+
+
 ChesapeakBuoySystem wind speed in {BuoyLocation}
+ChesapeakBuoySystem wind speed {BuoyLocation}
+ChesapeakBuoySystem wind {BuoyLocation}
+ChesapeakBuoySystem {BuoyLocation}
+ChesapeakBuoySystem how windy is it in {BuoyLocation}
+ChesapeakBuoySystem how windy is {BuoyLocation}
+ChesapeakBuoySystem how windy {BuoyLocation}
+ChesapeakBuoySystem what is the wind in {BuoyLocation}
+ChesapeakBuoySystem what's the wind in {BuoyLocation}
+ChesapeakBuoySystem what is the weather in {BuoyLocation}
+ChesapeakBuoySystem what's the weather in {BuoyLocation}
+ChesapeakBuoySystem weather in {BuoyLocation}
+ChesapeakBuoySystem sailing forecast in {BuoyLocation}
+ChesapeakBuoySystem sailing forecast {BuoyLocation}
+ChesapeakBuoySystem sailing {BuoyLocation}
+ChesapeakBuoySystem wind speed on the {BuoyLocation} buoy
+ChesapeakBuoySystem {BuoyLocation} buoy
+ChesapeakBuoySystem wind {BuoyLocation} buoy
+ChesapeakBuoySystem current wind {BuoyLocation}
+ChesapeakBuoySystem current wind in {BuoyLocation}
+ChesapeakBuoySystem for the current wind speed at {BuoyLocation}
+ChesapeakBuoySystem for the current wind speed {BuoyLocation}
+ChesapeakBuoySystem for the wind speed in {BuoyLocation}
+ChesapeakBuoySystem for the wind speed at {BuoyLocation}
+ChesapeakBuoySystem
+ChesapeakBuoySystem
+ChesapeakBuoySystem
+ChesapeakBuoySystem
+ChesapeakBuoySystem
+ChesapeakBuoySystem
+
+

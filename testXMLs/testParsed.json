@@ -1,132 +1,158 @@
 {
 	"Water Freezing Point": {
+		"upToDate": false,
 		"description": "30.4 F",
-		"title": "Water Freezing Point as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Water Freezing Point as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=sea_water_freezing_point"
 	},
 	"Relative Humidity": {
+		"upToDate": false,
 		"description": "95.8 percent",
-		"title": "Relative Humidity as of 16 days ago at 07:50AM Dec 5 EST",
+		"title": "Relative Humidity as of 17 days ago at 07:50AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=relative_humidity"
 	},
 	"Latitude": {
+		"upToDate": false,
 		"description": "38.96365 degrees",
-		"title": "Latitude as of 16 days ago at 07:50AM Dec 5 EST",
+		"title": "Latitude as of 17 days ago at 07:50AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=latitude"
 	},
 	"Air Temperature": {
+		"upToDate": false,
 		"description": "42.4 F",
-		"title": "Air Temperature as of 16 days ago at 07:50AM Dec 5 EST",
+		"title": "Air Temperature as of 17 days ago at 07:50AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=air_temperature"
 	},
 	"Chlorophyll A": {
+		"upToDate": false,
 		"description": "8.6 ug/L",
-		"title": "Chlorophyll A as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Chlorophyll A as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=concentration_of_chlorophyll_in_sea_water"
 	},
 	"Significant Wave Height": {
+		"upToDate": false,
 		"description": "0.9 ft",
-		"title": "Significant Wave Height as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Significant Wave Height as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=sea_surface_wave_significant_height"
 	},
 	"Water Conductivity": {
+		"upToDate": false,
 		"description": "1.89 S/m",
-		"title": "Water Conductivity as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Water Conductivity as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=sea_water_electrical_conductivity"
 	},
 	"Mean Wave Direction": {
+		"upToDate": false,
 		"description": "169 degrees",
-		"title": "Mean Wave Direction as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Mean Wave Direction as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=sea_surface_wave_from_direction"
 	},
 	"Sea Nettle Probability": {
+		"upToDate": false,
 		"description": "0.1 percent",
-		"title": "Sea Nettle Probability as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Sea Nettle Probability as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=seanettle_prob"
 	},
 	"Turbidity": {
+		"upToDate": false,
 		"description": "5.7 NTU",
-		"title": "Turbidity as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Turbidity as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=simple_turbidity"
 	},
 	"Current Direction": {
+		"upToDate": false,
 		"description": "322 degrees",
-		"title": "Current Direction as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Current Direction as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=current_average_direction"
 	},
 	"Maximum Wave Height": {
+		"upToDate": false,
 		"description": "1.7 ft",
-		"title": "Maximum Wave Height as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Maximum Wave Height as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=sea_surface_maximum_wave_height"
 	},
 	"Wave Direction Spread": {
+		"upToDate": false,
 		"description": "34 degrees",
-		"title": "Wave Direction Spread as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Wave Direction Spread as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=wave_direction_spread"
 	},
 	"Longitude": {
+		"upToDate": false,
 		"description": "-76.44684 degrees",
-		"title": "Longitude as of 16 days ago at 07:50AM Dec 5 EST",
+		"title": "Longitude as of 17 days ago at 07:50AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=longitude"
 	},
 	"Wind Direction": {
+		"upToDate": false,
 		"description": "253 degrees",
-		"title": "Wind Direction as of 16 days ago at 07:50AM Dec 5 EST",
+		"title": "Wind Direction as of 17 days ago at 07:50AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=wind_from_direction"
 	},
 	"Barometric Pressure": {
+		"upToDate": false,
 		"description": "30 inches",
-		"title": "Barometric Pressure as of 16 days ago at 07:50AM Dec 5 EST",
+		"title": "Barometric Pressure as of 17 days ago at 07:50AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=air_pressure"
 	},
 	"Water Salinity": {
+		"upToDate": false,
 		"description": "16.5 PSU",
-		"title": "Water Salinity as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Water Salinity as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=sea_water_salinity"
 	},
 	"Wind Gust": {
+		"upToDate": false,
 		"description": "7.2 knots",
-		"title": "Wind Gust as of 16 days ago at 07:50AM Dec 5 EST",
+		"title": "Wind Gust as of 17 days ago at 07:50AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=wind_speed_of_gust"
 	},
 	"Mean Wave Period": {
+		"upToDate": false,
 		"description": "2.4 s",
-		"title": "Mean Wave Period as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Mean Wave Period as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=sea_surface_wind_wave_period"
 	},
 	"Current Velocity": {
+		"upToDate": false,
 		"description": "0.09 knots",
-		"title": "Current Velocity as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Current Velocity as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=current_average_velocity"
 	},
 	"Wind Speed": {
+		"upToDate": false,
 		"description": "5.4 knots",
-		"title": "Wind Speed as of 16 days ago at 07:50AM Dec 5 EST",
+		"title": "Wind Speed as of 17 days ago at 07:50AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=wind_speed"
 	},
 	"Dissolved Oxygen": {
+		"upToDate": false,
 		"description": "9 mg/L",
-		"title": "Dissolved Oxygen as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Dissolved Oxygen as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=concentration_of_oxygen_in_sea_water"
 	},
 	"Water Temperature": {
+		"upToDate": false,
 		"description": "48.8 F",
-		"title": "Water Temperature as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Water Temperature as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=sea_water_temperature"
 	},
 	"Heat Index": {
+		"upToDate": false,
 		"description": "42.4 F",
-		"title": "Heat Index as of 16 days ago at 07:50AM Dec 5 EST",
+		"title": "Heat Index as of 17 days ago at 07:50AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=heat_index"
 	},
 	"Mean Wave Height": {
+		"upToDate": false,
 		"description": "0.6 ft",
-		"title": "Mean Wave Height as of 16 days ago at 07:00AM Dec 5 EST",
+		"title": "Mean Wave Height as of 17 days ago at 07:00AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=sea_surface_mean_wave_height"
 	},
 	"Wind Chill": {
+		"upToDate": false,
 		"description": "38.5 F",
-		"title": "Wind Chill as of 16 days ago at 07:50AM Dec 5 EST",
+		"title": "Wind Chill as of 17 days ago at 07:50AM Dec 5 EST",
 		"url": "http://buoybay.noaa.gov/observations/data-graphing-tool?platformId=AN&yaxis=wind_chill"
 	}
 }

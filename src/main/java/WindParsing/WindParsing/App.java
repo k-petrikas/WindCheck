@@ -62,19 +62,17 @@ public class App implements Speechlet {
 		 */
 
 		// get the rss feed from website
-		System.out.println("rss feed raw from rome: ");
 		String stringWebsiteURL = "http://buoybay.noaa.gov/locations/rss/AN";
 		SyndFeed feed = readRSS(stringWebsiteURL);
 
 		// send rss feed to aray list
 		JSONObject parsedXMLJSON = sendSyndFeedToJsonObject(feed);
-		// String[][] arrayOfRSSDataValues = sendSyndFeedToArrayList(feed);
 
 		// output of the array list
 		System.out.println("wind speed is:");
 		System.out.println(parsedXMLJSON.getJSONObject("Wind Speed").get("description"));
 
-		TESTMETHOD();
+//		TESTMETHOD();
 
 	}
 
@@ -90,44 +88,30 @@ public class App implements Speechlet {
 		for (SyndEntry entry : (List<SyndEntry>) feed.getEntries()) {
 
 			int indexASOF = entry.getTitle().indexOf("as of") - 1;
-			System.out.print(entry.getTitle());
-			// System.out.println(indexASOF);
 
 			// set variable for the json node name
 			String trimedNodeTitle = entry.getTitle().substring(0, indexASOF);
-			String magnitude = entry.getTitle().substring(indexASOF+9);
-			// System.out.println(trimedTitle + ":");
-			// System.out.println(trimedNodeTitle);
-			/*
-			 * TODO: logic for setting out of date variable could probably go
-			 * here (to pull it out of the title with the index)
-			 * 
-			 * sample title: Wind Speed as of 16 days ago at 07:50AM Dec 5 EST
-			 * 
-			 * probably should just include logic to pull out the "how long ago"
-			 * here and store it as a field in the json object... then when
-			 * returning the values and setting them as the return string
-			 * perform logic on the "how long ago" and return a
-			 * "this data is out of date if out of date"
-			 */
+
+			// figure out if data is out of date (magnitude is how far out of
+			// date it is)
+			String magnitude = entry.getTitle().substring(indexASOF + 9);
+
+			// check to see how old data is
+			boolean upToDate;
+			if (magnitude.substring(0, 3).equals("min") || magnitude.substring(0, 3).equals("sec")
+					|| magnitude.substring(1, 4).equals("min") || magnitude.substring(1, 4).equals("sec")) {
+				upToDate = true;
+			} else {
+				upToDate = false;
+			}
 
 			try {
 				JSONObject jsonContent = new JSONObject();
 				jsonContent.put("title", entry.getTitle());
 				jsonContent.put("url", entry.getUri());
 				jsonContent.put("description", entry.getDescription().getValue());
-				
-				if (magnitude.substring(0, 3).equals("min") ||
-					magnitude.substring(0, 3).equals("sec") ||
-					magnitude.substring(1, 4).equals("min") ||
-					magnitude.substring(1, 4).equals("sec") ){
-					jsonContent.put("upToDate", true);
-				}
-				else {
-					// System.out.println(" ...this is pretty old.");
-					jsonContent.put("upToDate", false);
-				}
-				
+				jsonContent.put("upToDate", upToDate);
+
 				jsonHeader.put(trimedNodeTitle, jsonContent);
 
 			} catch (JSONException e) {
@@ -154,35 +138,7 @@ public class App implements Speechlet {
 		System.out.println(getWindSpeedForParticularBuoy(urlCodeForBuoyLocation));
 	}
 
-	private static String[][] sendSyndFeedToArrayList(SyndFeed feed) {
-		/*
-		 * this method will put the parsed rss feed into an array of arrays in
-		 * order to manipulate the data for later use
-		 */
-		int i = 0;
-		String[][] arrayOfRSSDataValues = new String[26][];
-		for (SyndEntry entry : (List<SyndEntry>) feed.getEntries()) {
-			// System.out.println("\n" + i + ":");
-			String title = entry.getTitle();
-			String uri = entry.getUri();
-			String description = entry.getDescription().getValue();
-			// // ... you should include all values here... will be all lines
-			// that need to get added to the parsed array list
-
-			arrayOfRSSDataValues[i] = new String[6];
-			arrayOfRSSDataValues[i][0] = title;
-			arrayOfRSSDataValues[i][1] = uri;
-			arrayOfRSSDataValues[i][2] = description;
-
-			// System.out.println("title: " + title);
-			// System.out.println("uri: " + uri);
-			// System.out.println("description: " + description);
-
-			i++;
-		}
-
-		return arrayOfRSSDataValues;
-	}
+	
 
 	private static SyndFeed readRSS(String websiteURL) {
 
@@ -218,19 +174,23 @@ public class App implements Speechlet {
 
 		// send rss feed to JSON object
 		JSONObject parsedXMLJSON = sendSyndFeedToJsonObject(feed);
-
-		// return the wind speed from JSON
-		// TODO: this is where logic for data out of date would go maybe??
+		
+		// return wind speed, first perform logic check for out of date data
 		try {
-			return parsedXMLJSON.getJSONObject("Wind Speed").get("description").toString();
+			if (parsedXMLJSON.getJSONObject("Wind Speed").get("upToDate").equals(false)) {
+				return "not up to date. Last " + parsedXMLJSON.getJSONObject("Wind Speed").get("title").toString();
+			} else {
+				return parsedXMLJSON.getJSONObject("Wind Speed").get("description").toString();
+			}
+
 		} catch (JSONException e) {
 			e.printStackTrace();
-			return "error finding wind data";
+			return "error finding wind data for this Buoy";
 		}
 	}
 
 	/*
-	 * below is all the logic for ASK (alexa skills kit) there are 4 required
+	 * below is all the logic for ASK (allexa skills kit) there are 4 required
 	 * methods: onIntent onLaunch onSessionStarted onSessionEnded
 	 * 
 	 */
@@ -245,9 +205,7 @@ public class App implements Speechlet {
 		Intent intent = request.getIntent();
 		String intentName = (intent != null) ? intent.getName() : null;
 
-		if ("SailingWindForecast".equals(intentName)) {
-			return getWindSpeed();
-		} else if ("ChesapeakBuoySystem".equals(intentName)) {
+		if ("ChesapeakBuoySystem".equals(intentName)) {
 			return getWindSpeedForSpecificLocation(request);
 		} else if ("AMAZON.HelpIntent".equals(intentName)) {
 			return getHelpResponse();
@@ -281,7 +239,8 @@ public class App implements Speechlet {
 	 * @return SpeechletResponse spoken and visual response for the given intent
 	 */
 	private SpeechletResponse getWelcomeResponse() {
-		String speechText = "You can ask for the current windspeed by saying, get wind speed";
+		String speechText = "You can ask for the current windspeed by saying, get wind speed in ANNAPOLIS."
+				+ "or by asking for any other Chesapeake NOAA bouy location";
 
 		// Create the Simple card content.
 		SimpleCard card = new SimpleCard();
@@ -305,12 +264,16 @@ public class App implements Speechlet {
 	 * @return SpeechletResponse spoken and visual response for the given intent
 	 */
 	private SpeechletResponse getWindSpeed() {
+		
+		/*
+		 * this method is no longer used... user should request specific buoy location for wind speed each time
+		 */
 
 		String urlCodeForBuoyLocation = ChesapeakBayBuoyLocations.get("ANNAPOLIS").toString();
 
 		windSpeed = getWindSpeedForParticularBuoy(urlCodeForBuoyLocation);
 
-		String speechText = "The current wind speed in annapolis maryland is " + windSpeed;
+		String speechText = "The current wind speed for annapolis maryland is " + windSpeed;
 
 		// Create the Simple card content.
 		SimpleCard card = new SimpleCard();
@@ -365,17 +328,12 @@ public class App implements Speechlet {
 		String buoyLocation = request.getIntent().getSlot("BuoyLocation").getValue().toString().toUpperCase();
 		String urlCodeForBuoyLocation = ChesapeakBayBuoyLocations.get(buoyLocation).toString();
 
-		// String buoyLocation = "annapolis";
-		// Annapolis
-		// buoyLocation = buoyLocation.toUpperCase();
-		// String urlCodeForBuoyLocation =
-		// ChesapeakBayBuoyLocations.get(buoyLocation).toString();
-
+		// request wind speed for particular location
 		windSpeed = getWindSpeedForParticularBuoy(urlCodeForBuoyLocation);
 
 		
 		
-		String speechText = "The current wind speed for " + buoyLocation + " is " + windSpeed;
+		String speechText = "The current wind speed at the " + buoyLocation + " buoy is " + windSpeed;
 
 		// Create the Simple card content.
 		SimpleCard card = new SimpleCard();
