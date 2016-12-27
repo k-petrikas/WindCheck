@@ -13,6 +13,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -72,7 +73,16 @@ public class App implements Speechlet {
 		System.out.println("wind speed is:");
 		System.out.println(parsedXMLJSON.getJSONObject("Wind Speed").get("description"));
 
-//		TESTMETHOD();
+		// TESTMETHOD();
+		
+		String buoyLocation = "in";
+		System.out.println("locaiton is");
+		System.out.println(ChesapeakBayBuoyLocations.get(buoyLocation));
+		if (ChesapeakBayBuoyLocations.get(buoyLocation) == null) {
+			System.out.println("is null");
+		} else {
+			System.out.println("not null");
+		}
 
 	}
 
@@ -138,8 +148,6 @@ public class App implements Speechlet {
 		System.out.println(getWindSpeedForParticularBuoy(urlCodeForBuoyLocation));
 	}
 
-	
-
 	private static SyndFeed readRSS(String websiteURL) {
 
 		SyndFeed feed = null;
@@ -174,7 +182,7 @@ public class App implements Speechlet {
 
 		// send rss feed to JSON object
 		JSONObject parsedXMLJSON = sendSyndFeedToJsonObject(feed);
-		
+
 		// return wind speed, first perform logic check for out of date data
 		try {
 			if (parsedXMLJSON.getJSONObject("Wind Speed").get("upToDate").equals(false)) {
@@ -209,10 +217,15 @@ public class App implements Speechlet {
 			return getWindSpeedForSpecificLocation(request);
 		} else if ("AMAZON.HelpIntent".equals(intentName)) {
 			return getHelpResponse();
+		} else if ("AMAZON.StopIntent".equals(intentName)) {
+			return getStopIntent();
+		} else if ("AMAZON.CancelIntent".equals(intentName)) {
+			return getStopIntent();
 		} else {
 			throw new SpeechletException("Invalid Intent");
 		}
 	}
+
 
 	@Override
 	public SpeechletResponse onLaunch(LaunchRequest request, Session session) throws SpeechletException {
@@ -239,8 +252,8 @@ public class App implements Speechlet {
 	 * @return SpeechletResponse spoken and visual response for the given intent
 	 */
 	private SpeechletResponse getWelcomeResponse() {
-		String speechText = "You can ask for the current windspeed by saying, get wind speed in ANNAPOLIS."
-				+ "or by asking for any other Chesapeake NOAA bouy location";
+		String speechText = "You can ask for the current wind speed by saying, get wind speed in ANNAPOLIS."
+				+ " Or by asking for any other Chesapeake bouy location";
 
 		// Create the Simple card content.
 		SimpleCard card = new SimpleCard();
@@ -264,9 +277,10 @@ public class App implements Speechlet {
 	 * @return SpeechletResponse spoken and visual response for the given intent
 	 */
 	private SpeechletResponse getWindSpeed() {
-		
+
 		/*
-		 * this method is no longer used... user should request specific buoy location for wind speed each time
+		 * this method is no longer used... user should request specific buoy
+		 * location for wind speed each time
 		 */
 
 		String urlCodeForBuoyLocation = ChesapeakBayBuoyLocations.get("ANNAPOLIS").toString();
@@ -293,7 +307,7 @@ public class App implements Speechlet {
 	 * @return SpeechletResponse spoken and visual response for the given intent
 	 */
 	private SpeechletResponse getHelpResponse() {
-		String speechText = "You can ask for the current windspeed by saying, get wind speed!";
+		String speechText = "You can ask for the current windspeed by saying, get wind speed in Annapolis";
 
 		// Create the Simple card content.
 		SimpleCard card = new SimpleCard();
@@ -325,15 +339,63 @@ public class App implements Speechlet {
 		 * get the slot location for request steralize the slot location (send
 		 * it to upper)
 		 */
-		String buoyLocation = request.getIntent().getSlot("BuoyLocation").getValue().toString().toUpperCase();
-		String urlCodeForBuoyLocation = ChesapeakBayBuoyLocations.get(buoyLocation).toString();
-
-		// request wind speed for particular location
-		windSpeed = getWindSpeedForParticularBuoy(urlCodeForBuoyLocation);
-
+		String buoyLocation;
+		try {
+			buoyLocation = request.getIntent().getSlot("BuoyLocation").getValue().toString().toUpperCase();
+		} catch (Exception e) {
+			buoyLocation = "ERROR";
+		}
 		
 		
-		String speechText = "The current wind speed at the " + buoyLocation + " buoy is " + windSpeed;
+		String speechText;
+		if (ChesapeakBayBuoyLocations.get(buoyLocation) == null) {
+			speechText = "Please provide a valid location for your wind speed request, such as, get wind speed in Annapolis";
+
+			// Create the Simple card content.
+			SimpleCard card = new SimpleCard();
+			card.setTitle("Wind Speed");
+			card.setContent(speechText);
+
+			// Create the plain text output.
+			PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+			speech.setText(speechText);
+
+			// Create reprompt
+			Reprompt reprompt = new Reprompt();
+			reprompt.setOutputSpeech(speech);
+
+			return SpeechletResponse.newAskResponse(speech, reprompt, card);
+
+		} else {
+			String urlCodeForBuoyLocation = ChesapeakBayBuoyLocations.get(buoyLocation).toString();
+
+			// request wind speed for particular location
+			windSpeed = getWindSpeedForParticularBuoy(urlCodeForBuoyLocation);
+
+			speechText = "The current wind speed in " + buoyLocation + " is " + windSpeed;
+
+			// Create the Simple card content.
+			SimpleCard card = new SimpleCard();
+			card.setTitle("Wind Speed");
+			card.setContent(speechText);
+
+			// Create the plain text output.
+			PlainTextOutputSpeech speech = new PlainTextOutputSpeech();
+			speech.setText(speechText);
+
+			return SpeechletResponse.newTellResponse(speech, card);
+		}
+
+	}
+	
+	
+	/**
+	 * Creates a {@code SpeechletResponse} for the Stop and Cancel intent.
+	 *
+	 * @return SpeechletResponse spoken and visual response for the given intent
+	 */
+	private SpeechletResponse getStopIntent() {
+		String speechText = "Sailing forecast stopped";
 
 		// Create the Simple card content.
 		SimpleCard card = new SimpleCard();
@@ -346,5 +408,6 @@ public class App implements Speechlet {
 
 		return SpeechletResponse.newTellResponse(speech, card);
 	}
+
 
 }

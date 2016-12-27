@@ -26,15 +26,15 @@ ChesapeakBuoySystem {BuoyLocation} buoy
 ChesapeakBuoySystem wind {BuoyLocation} buoy
 ChesapeakBuoySystem current wind {BuoyLocation}
 ChesapeakBuoySystem current wind in {BuoyLocation}
+ChesapeakBuoySystem current wind speed {BuoyLocation}
+ChesapeakBuoySystem what is the current wind speed {BuoyLocation}
 ChesapeakBuoySystem for the current wind speed at {BuoyLocation}
 ChesapeakBuoySystem for the current wind speed {BuoyLocation}
 ChesapeakBuoySystem for the wind speed in {BuoyLocation}
 ChesapeakBuoySystem for the wind speed at {BuoyLocation}
-ChesapeakBuoySystem
-ChesapeakBuoySystem
-ChesapeakBuoySystem
-ChesapeakBuoySystem
-ChesapeakBuoySystem
-ChesapeakBuoySystem
+ChesapeakBuoySystem for the wind speed at the {BuoyLocation} buoy
+ChesapeakBuoySystem for the sailing forecast in {BuoyLocation}
+ChesapeakBuoySystem for the wind in {BuoyLocation}
+
 
 

@@ -1,19 +1,22 @@
 {
-  "intents": [
-    {
-      "intent": "SailingWindForecast"
-    },
-    {
-      "intent": "ChesapeakBuoySystem",
-      "slots": [
-        {
-          "name": "BuoyLocation",
-          "type": "LIST_OF_CHESAPEAK_BUOYS"
-        }
-      ]
-    },
-    {
-      "intent": "AMAZON.HelpIntent"
-    }
-  ]
+	"intents": [
+		{
+			"intent": "ChesapeakBuoySystem",
+			"slots": [
+				{
+					"name": "BuoyLocation",
+					"type": "LIST_OF_CHESAPEAK_BUOYS"
+				}
+			]
+		},
+		{
+			"intent": "AMAZON.HelpIntent"
+		},
+		{
+			"intent": "AMAZON.StopIntent"
+		},
+		{
+			"intent": "AMAZON.CancelIntent"
+		}
+	]
 }
